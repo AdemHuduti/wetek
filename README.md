@@ -4,9 +4,9 @@
 ``` bash
 
 # Clone repository
-git clone https://github.com/AdemHuduti/react-app-test.git
+git clone https://github.com/AdemHuduti/wetek.git
 
-cd react-app-test
+cd wetek
 
 # Install dependencies
 npm install

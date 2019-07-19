@@ -3,7 +3,7 @@ import "../index.css";
 
 const UserList = ({ user }) => {
   return (
-    <div className="span">
+    <div className="user-list">
       <div >
         <img src={`${user.avatar}`} alt={`${user.name}`} />
         <h5>{user.name}</h5>

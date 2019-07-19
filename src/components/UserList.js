@@ -3,10 +3,10 @@ import "../index.css";
 
 const UserList = ({ user }) => {
   return (
-    <div className="user-list">
-      <div >
+    <div className="user-list mb-3">
+      <div>
         <img src={`${user.avatar}`} alt={`${user.name}`} />
-        <h5>{user.name}</h5>
+        <h6 className="user-name">{user.name}</h6>
       </div>
     </div>
   )

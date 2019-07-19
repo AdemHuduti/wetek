@@ -13,6 +13,29 @@ body {
   width: 20%;
 }
 
+.search-input {
+  border-radius: 100px;
+}
+
+input:focus {
+  box-shadow: none !important;
+  border: 1px solid #ddd !important
+}
+
+.user-name {
+  font-size: .8rem;
+}
+
+.user-list img {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 3px;
+}
+
+.user-list img:hover {
+  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
+
 @media only screen and (min-width: 480px) and (max-width: 767px){
   .user-list {
     width: 50%;
@@ -23,13 +46,4 @@ body {
   .user-list {
     width: 100%;
   }
-}
-
-.search-input {
-  border-radius: 100px;
-}
-
-input:focus {
-  box-shadow: none !important;
-  border: 1px solid #ddd !important
 }

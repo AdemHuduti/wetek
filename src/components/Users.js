@@ -3,13 +3,14 @@ import React from 'react';
 import Faker from 'faker';
 import UserList from './UserList';
 import SearchUser from './SearchUser';
+import '../index.css';
 
 class Users extends React.Component {
   state = {
     users: [],
     totalUsers: 20,
     filterUsers: '',
-    loading: false
+    loading: true
   }
 
   componentDidMount() {
@@ -18,7 +19,7 @@ class Users extends React.Component {
   }
 
   componentWillUnmount() {
-    window.removeEventListener('scroll')
+    window.removeEventListener('scroll');
   }
 
   fetchFakeUsers() {
@@ -65,26 +66,30 @@ class Users extends React.Component {
       }
       this.setState(prevState => ({
         users: [...prevState.users, newUser],
-      })); 
+      }));
     }
   }
 
   render() {
+    const searchWithDebounce = _.debounce(text => this.setState({ filterUsers: text }), 500)
+    const { filterUsers, loading } = this.state;
     return (
       <div className="container">
-        <SearchUser onSearchUser={text => this.setState({ filterUsers: text })} />
+        <SearchUser onSearchUser={searchWithDebounce} />
         <div className="row">
           {this.showUsers()}
         </div>
 
         {
-          this.state.loading && this.state.loading ?
-          <div className="spinner-border text-primary loader" role="status">
-            <span className="sr-only">Loading...</span>
-          </div>
-          :
-          null
-          }
+          !filterUsers && loading ?
+            <div className="text-center mt-5 mb-5">
+              <div className="spinner-border text-primary loader" role="status">
+                <span className="sr-only">Loading...</span>
+              </div>
+            </div>
+            :
+            null
+        }
       </div>
     )
   }
